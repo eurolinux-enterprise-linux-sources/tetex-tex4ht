@@ -5,7 +5,7 @@
 Summary:       Translates TeX and LaTeX into HTML or XML+MathML
 Name:          tetex-tex4ht
 Version:       1.0.2008_09_16_1413
-Release:       4%{?dist}
+Release:       6%{?dist}
 License:       LPPL
 Group:         Applications/Publishing
 URL:           http://www.cse.ohio-state.edu/~gurari/TeX4ht/
@@ -43,7 +43,8 @@ BuildRequires:  sharutils
 # pnmcrop and pnmtopng are in netpbm-progs. 
 Requires:       netpbm-progs
 # ImageMagick, pstoedit depends on ghostscript and gs is in ghostscript
-Requires:       ImageMagick pstoedit
+Requires:       ImageMagick >= 6.7.2.7
+Requires:       pstoedit
 # for all the conversion scripts
 Requires:        tex(latex) tex(dvips) tex(context) tex(xetex) texinfo-tex
 Requires:        /usr/bin/dvipng
@@ -193,6 +194,9 @@ texhash > /dev/null 2>&1 || :
 texhash > /dev/null 2>&1 || :
 
 %changelog
+* Thu Feb 19 2015 Jan Horak <jhorak@redhat.com> - 1.0.2008_09_16_1413-6
+- Rebuild due to rebase of ImageMagick
+
 * Fri Jun 25 2010 Jindrich Novy <jnovy@redhat.com> 1.0.2008_09_16_1413-4
 - do not require openjdk (#606852)
 
